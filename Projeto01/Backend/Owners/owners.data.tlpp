@@ -2,7 +2,7 @@
 #include "FWMVCDEF.CH"
 
 namespace owners
-
+using namespace utils
 /*/{Protheus.doc} OwnerData
 (long_description)
 @author Aencio Vinicius
@@ -64,8 +64,12 @@ Method get(nPage as Numeric, nPageSize as Numeric, cFilter as Character,;
 
     ::setPage(nPage)
     ::setPageSize(nPageSize)
-    ::setQuery()
+    ::setQuery(ultils.getQuery("ZSB"))
     ::setWhere(cWhere)
     ::setOrder("ZSB_FILIAL, ZSB_ID")
+
+    If ::Execute()
+        ::FilGetResponse()
+    EndIf
 
 Return Nil
