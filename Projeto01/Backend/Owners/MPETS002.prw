@@ -10,6 +10,7 @@ User Function MPETS002()
 	oMBrowse:SetCanSaveArea(.T.)
 	oMBrowse:SetMenudef("MPETS002")
 	oMBrowse:Activate()
+	
 Return Nil
 
 Static Function MenuDef()
