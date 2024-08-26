@@ -10,3 +10,7 @@ Class OwnersService
     Public method get() as json
 
 EndClass
+
+Method new() as Object Class OwnersService
+    ::jResponse := JsonObject():New() // criando um json vazio que vai retornar os dados para controle
+Return Self
