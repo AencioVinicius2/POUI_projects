@@ -1,19 +1,15 @@
+#include 'totvs.ch'
 #include 'tlpp-core.th'
-#include "FWMVCDEF.CH"
 
 namespace utils
 
-/*/{Protheus.doc} nomeFunction
+/*/{Protheus.doc} getQuery
 (long_description)
 @type  Function
 @author Aencio Vinicius
 @since 26/08/2024
 @version 1.0
 /*/
-Function nomeFunction(param_name)
-    
-Return return_var
-
 Function getQuery(cTable as Character) as Character
     Local cQuery as Character
 
