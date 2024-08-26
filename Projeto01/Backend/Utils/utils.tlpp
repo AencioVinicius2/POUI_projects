@@ -1,4 +1,11 @@
 #include 'tlpp-core.th'
 #include "FWMVCDEF.CH"
 
-Function getQuery()
+namespace utils
+
+Function getQuery(cTable as Character) as Character
+    Local cQuery as Character
+
+    cQuery := "SELECT #QueryFields# FROM" + RetSqlName(cTable) + " " + cTable
+    cQuery := " WHERE #QueryFields#"
+return cQuery
