@@ -4,7 +4,8 @@
 namespace owners 
 
 /*/{Protheus.doc} OwnersController
-(long_description)
+API para Consultar, Incluir, Alterar e Excluir um Tutor
+@type class
 @author Aencio Vinicius
 @since 26/08/2024
 @version 1.0
@@ -17,16 +18,17 @@ Class OwnersController
 
 	@Get('/api/v2/owners') //coluna get
 	Public method get() as Logical
+
+	@Get('/api/v1/owners/:id')
+	Public method getById() as Logical
 EndClass
 
-
 /*/{Protheus.doc} new
-(long_description)
-@author Aencio
+Obtem uma nova instância da classe OwnersController
+@type method
+@author Aencio Vinicius
 @since 27/08/2024
-@version version
-@param param_name, param_type, param_descr
-@return return_var, return_type, return_description
+@version 1.0
 /*/ 
 Method new()  as object Class OwnersController
 	::oService := OwnersService():New()
@@ -35,10 +37,10 @@ Return Self
 
 
 /*/{Protheus.doc} get
-(long_description)
+Retornar todos os tutores
 @author Aencio Vinicius
 @since 27/08/2024
-@version version
+@version 1.0
 /*/
 Method get() as Logical Class OwnersController
 	Local cFields   as Character
@@ -59,3 +61,20 @@ Method get() as Logical Class OwnersController
 
 Return .T.
 
+/*/{Protheus.doc} getById
+
+@author Aencio
+@type method
+@since 27/08/2024
+@version 1.0
+/*/
+Method getById() as Logical Class OwnersController
+	Local cId     as Character
+	Local cFields as Character
+
+	cFields := utils.GetQueryParam('FIELDS') //retorna informação
+
+	oRest:setKeyHeaderResponse('Content-Type', 'application/json; charset=utf-8') // tipo do response
+	cId := oRest:getPathParamsRequest()['id'] // passa o parametro
+	oRest:setResponse(::oService:get(1, 10,/* cFilter */, cFields, /* cSort */, cId)) //chama o get do service 
+Return .T.

@@ -38,10 +38,13 @@ Method get(nPage as Numeric, nPageSize as Numeric, cFilter as Character,;
     Local oData as object
 
     oData := OwnersData():New("GET")
-    oData := OwnersData:get(nPage, nPageSize, cFilter, cFields, cSort, cOwnerId)
+    oData:get(nPage, nPageSize, cFilter, cFields, cSort, cOwnerId)
 
     If oData:lOk
         ::jResponse := oData:gtJsonObjResponse()
+        If !Empty(cOwnerId) .AND. Len(::jResponse['items']) > 0
+            ::jResponse := ::jResponse['items'][1]
+        EndIf
     Else
         ::jResponse := SetRestFault(oData:GetCode(), oData:GetMessage())
     EndIF
