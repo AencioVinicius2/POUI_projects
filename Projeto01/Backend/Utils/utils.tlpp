@@ -16,3 +16,18 @@ Function getQuery(cTable as Character) as Character
     cQuery := "SELECT #QueryFields# FROM" + RetSqlName(cTable) + " " + cTable
     cQuery := " WHERE #QueryFields#"
 return cQuery
+
+Function GetQueryParam(cNome as Character) as Character
+    Local cParamText as Character
+
+    cParamText := oRest:getQueryRequest():GetJsonText(cName)
+    If cParamText == 'null'
+        If cName == 'page'
+            cParamText := '1'
+        ElseIf cName == 'pageSize'
+            cParamText := '10'
+        Else
+            cParamText := ''
+        EndIf
+    EndIf
+Return cParamText

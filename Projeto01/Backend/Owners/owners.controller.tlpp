@@ -31,5 +31,23 @@ EndClass
 Method new()  as object Class OwnersController
 	::oService := OwnersService():New()
 	::jResponse := JsonObject():New()
-Return Nil
+Return Self
+
+
+/*/{Protheus.doc} get
+(long_description)
+@author Aencio Vinicius
+@since 27/08/2024
+@version version
+/*/
+Method get() as object Class OwnerData
+	Local cFields   as Character
+	Local cSort     as Character
+	Local cFilter   as Character
+	Local nPage     as Numeric
+	Local nPageSize as Numeric
+
+	
+
+Return .T.
 
