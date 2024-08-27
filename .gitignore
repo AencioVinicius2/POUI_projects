@@ -22,6 +22,7 @@
 
 # IDEs and editors
 .idea/*
+./test
 !.idea/runConfigurations/
 !.idea/codeStyleSettings.xml
 .project

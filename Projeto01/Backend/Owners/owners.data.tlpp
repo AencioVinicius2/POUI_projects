@@ -48,14 +48,19 @@ Retorna os dados de tutores
 @param param_name, param_type, param_descr
 @return return_var, return_type, return_description
 /*/
-Method get(nPage as Numeric, nPageSize as Numeric, cFilter as Character, cFields as Character, cSort as Character, cOwnerId as Character) Class OwnersData
+Method get(nPage as Numeric, nPageSize as Numeric, cFilter as Character,;
+ cFields as Character, cSort as Character, cOwnerId as Character) Class OwnersData
 
     Local aArea as Array
     Local cWhere as Character
     Local aFilter as Array
     aFilter := {}
 
-    cWhere := "ZSB_FILIAL = '" + fwXFilial("ZSB") + "' AND D_E_L_E_T_ = ''"
+    If Empty(cOwnerId)
+        cWhere := "ZSB_FILIAL = '" + fwXFilial("ZSB") + "' AND D_E_L_E_T_ = ''"
+    Else
+        cWhere := "ZSB_ID = '" + cOwnerId + "' AND ZSB_FILIAL = '" + fwXFilial("ZSB") + "' AND D_E_L_E_T_ = ''"
+    EndIf
 
     aArea := fwGetArea()
 
