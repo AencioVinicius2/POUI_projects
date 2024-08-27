@@ -40,7 +40,7 @@ Return Self
 @since 27/08/2024
 @version version
 /*/
-Method get() as object Class OwnerData
+Method get() as Logical Class OwnersController
 	Local cFields   as Character
 	Local cSort     as Character
 	Local cFilter   as Character

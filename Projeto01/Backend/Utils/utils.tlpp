@@ -5,19 +5,26 @@ namespace utils
 
 /*/{Protheus.doc} getQuery
 (long_description)
-@type  Function
+@type User Function
 @author Aencio Vinicius
 @since 26/08/2024
 @version 1.0
 /*/
-Function getQuery(cTable as Character) as Character
+User Function getQuery(cTable as Character) as Character
     Local cQuery as Character
 
     cQuery := "SELECT #QueryFields# FROM" + RetSqlName(cTable) + " " + cTable
     cQuery := " WHERE #QueryFields#"
 return cQuery
 
-Function GetQueryParam(cNome as Character) as Character
+/*/{Protheus.doc} GetQueryParam
+(long_description)
+@type User Function
+@author Aencio Vinicius
+@since 27/08/2024
+@version 1.0
+/*/
+User Function GetQueryParam(cNome as Character) as Character
     Local cParamText as Character
 
     cParamText := oRest:getQueryRequest():GetJsonText(cName)

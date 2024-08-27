@@ -3,15 +3,15 @@
 
 namespace owners
 using namespace utils
-/*/{Protheus.doc} OwnerData
+/*/{Protheus.doc} OwnersData
 (long_description)
 @author Aencio Vinicius
 @since 26/08/2024
 @version 1.0
 /*/
-Class OwnerData From FWAdpterasev2
+Class OwnersData From FWAdapterBaseV2
     public method new() as Object
-    public method get() 
+    public method get()
 EndClass
 /*/{Protheus.doc} new
 (long_description)
@@ -19,7 +19,7 @@ EndClass
 @since 26/08/2024
 @version 1.0
 /*/
-Method new(cVerb as Character) as Object Class OwnerData 
+Method new(cVerb as Character) as Object Class OwnersData 
     _Super:new(cVerb, .T.) //precisa receber um post ou get como parametro
 Return Self
 
@@ -41,15 +41,14 @@ Static Function AddMapFields(oSelf as object)
 Return Nil
 
 /*/{Protheus.doc} get
-(long_description)
+Retorna os dados de tutores
 @author user
 @since 26/08/2024
 @version version
 @param param_name, param_type, param_descr
 @return return_var, return_type, return_description
 /*/
-Method get(nPage as Numeric, nPageSize as Numeric, cFilter as Character,;
-    cFields as Character, cSort as Character, cOwnerId as Character) Class OwnersData
+Method get(nPage as Numeric, nPageSize as Numeric, cFilter as Character, cFields as Character, cSort as Character, cOwnerId as Character) Class OwnersData
 
     Local aArea as Array
     Local cWhere as Character
@@ -62,11 +61,10 @@ Method get(nPage as Numeric, nPageSize as Numeric, cFilter as Character,;
 
     AddMapField(self)
 
-    
     If !Empty(cFilter)
         ::SetUrlFilter(cFilter)
     EndIf
-    
+
     If !Empty(cFields)
         ::SetFields(cFields)
     EndIf
@@ -84,5 +82,8 @@ Method get(nPage as Numeric, nPageSize as Numeric, cFilter as Character,;
     If ::Execute()
         ::FilGetResponse()
     EndIf
+
+    RestArea(aArea)
+    aSize(aArea, 0)
 
 Return Nil
