@@ -1,2 +1,35 @@
 #include  'TOTVS.ch'
 #include 'tlpp-core.th'
+
+namespace owners 
+
+/*/{Protheus.doc} OwnersController
+(long_description)
+@author Aencio Vinicius
+@since 26/08/2024
+@version 1.0
+/*/
+Class OwnersController
+	Data jResponse as json //retorno da api
+	Data oService as object // fazer instancia da service
+
+	Public method new() as object
+
+	@Get('/api/v2/owners') //coluna get
+	Public method get() as Logical
+EndClass
+
+
+/*/{Protheus.doc} new
+(long_description)
+@author Aencio
+@since 27/08/2024
+@version version
+@param param_name, param_type, param_descr
+@return return_var, return_type, return_description
+/*/ 
+Method new()  as object Class OwnersController
+	::oService := OwnersService():New()
+	::jResponse := JsonObject():New()
+Return Nil
+
