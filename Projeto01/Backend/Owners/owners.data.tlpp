@@ -62,6 +62,19 @@ Method get(nPage as Numeric, nPageSize as Numeric, cFilter as Character,;
 
     AddMapField(self)
 
+    
+    If !Empty(cFilter)
+        ::SetUrlFilter(cFilter)
+    EndIf
+    
+    If !Empty(cFields)
+        ::SetFields(cFields)
+    EndIf
+
+    If !Empty(cSort)
+        ::SetOrderQuery(cSort)
+    EndIf
+
     ::setPage(nPage)
     ::setPageSize(nPageSize)
     ::setQuery(ultils.getQuery("ZSB"))

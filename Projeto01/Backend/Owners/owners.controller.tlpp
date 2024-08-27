@@ -47,7 +47,15 @@ Method get() as object Class OwnerData
 	Local nPage     as Numeric
 	Local nPageSize as Numeric
 
-	
+
+	cFields   := utils.GetQueryParam('FIELDS')
+	cSort     := utils.GetQueryParam('SORT')
+	cFilter   := utils.GetQueryParam('FILTER')
+	nPage     := utils.GetQueryParam('page')
+	nPageSize := utils.GetQueryParam('pageSize')	
+
+	oRest:setKeyHeaderResponse('Content-Type', 'application/json; charset-utf-8')
+	oRest:setResponse(::oService:get(Val(nPage), Val(nPageSize), cFilter, cFields, cSort))
 
 Return .T.
 
