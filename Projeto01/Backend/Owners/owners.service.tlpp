@@ -5,15 +5,16 @@ namespace owners
 
 /*/{Protheus.doc} OwnersService
 (long_description)
- @author Aencio Vinicius
+@author Aencio Vinicius
 @since 26/08/2024
 @version version
 /*/
 Class OwnersService 
     Public Data jResponse as Json
     
-    Public method new() as object
-    Public method get() as json
+    Public Method new() as object
+    Public Method get() as Json
+    Public Method post() as Json
 
 EndClass
 
@@ -46,6 +47,24 @@ Method get(nPage as Numeric, nPageSize as Numeric, cFilter as Character,;
             ::jResponse := ::jResponse['items'][1]
         EndIf
     Else
-        ::jResponse := SetRestFault(oData:GetCode(), oData:GetMessage())
+        ::jResponse := SetRestFault(oData:GetCode(), 'oData:GetMessage()')
     EndIF
 Return :: jResponse
+
+/*/{Protheus.doc} post
+(long_description)
+@author Aencio Vinicius 
+@type Method
+@since 28/08/2024
+@version 1.0
+/*/
+Method post(nOperation as Numeric, jBody as Json) as Json Class OwnersService
+    Local oData as object
+
+    oData := OwnersData():new("POST")
+    ::jResponse := oData:handleOwners(nOperation, jBody)
+
+    If !oData:lOk
+        ::jResponse := SetRestFault(oData:GetCode(), oData:GetMessage())
+    EndIf
+Return ::jResponse

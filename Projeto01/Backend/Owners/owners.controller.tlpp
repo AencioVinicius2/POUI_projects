@@ -14,13 +14,16 @@ Class OwnersController
 	Data jResponse as json //retorno da api
 	Data oService as object // fazer instancia da service
 
-	Public method new() as object
+	Public Method new() as object
 
-	@Get('/api/v2/owners') //coluna get
-	Public method get() as Logical
+	@Get("/api/v2/owners") //coluna get
+	Public Method get() as Logical
 
-	@Get('/api/v1/owners/:id')
-	Public method getById() as Logical
+	@Get("/api/v2/owners/:id")
+	Public Method getById() as Logical
+	
+	@Post("/api/v2/owners")
+	Public Method post() as Logical
 EndClass
 
 /*/{Protheus.doc} new
@@ -56,7 +59,7 @@ Method get() as Logical Class OwnersController
 	nPage     := utils.GetQueryParam('page')
 	nPageSize := utils.GetQueryParam('pageSize')	
 
-	oRest:setKeyHeaderResponse('Content-Type', 'application/json; charset-utf-8')
+	oRest:setKeyHeaderResponse('Content-Type', 'application/json; charset=utf-8')
 	oRest:setResponse(::oService:get(Val(nPage), Val(nPageSize), cFilter, cFields, cSort))
 
 Return .T.
@@ -77,4 +80,26 @@ Method getById() as Logical Class OwnersController
 	oRest:setKeyHeaderResponse('Content-Type', 'application/json; charset=utf-8') // tipo do response
 	cId := oRest:getPathParamsRequest()['id'] // passa o parametro
 	oRest:setResponse(::oService:get(1, 10,/* cFilter */, cFields, /* cSort */, cId)) //chama o get do service 
+Return .T.
+
+/*/{Protheus.doc} post
+(long_description)
+@author Aencio Vinicius
+@since 28/08/2024
+@version 1.0
+/*/
+Method post() as Logical Class OwnersController
+	Local cBody as Character // p bpdy contem as informações que quero incluir no banco
+	Local jBody as Json //
+
+	oRest:setKeyHeaderResponse('Content-Type', 'application/json; charset=utf-8')
+
+	cBody := oRest:getBodyRequest() //pega as informações que o client enviou que deve estar no formato json
+	jBody := JsonObject():New()
+
+	If JBody:FromJson(cBody) == Nil
+		oRest:SetResponse(::oService:post(3, jBody))
+	Else
+		SetRestFault(400, "Json inválido")
+	EndIf
 Return .T.

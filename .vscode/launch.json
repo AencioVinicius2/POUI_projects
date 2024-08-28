@@ -18,8 +18,11 @@
 		},
 		{
 			"label": "tlpp.environment.getIncludesTLPP"
+		},
+		{
+			"label": "SIGAATF"
 		}
 	],
-	"lastProgramExecuted": "tlpp.environment.getIncludesTLPP",
+	"lastProgramExecuted": "SIGAATF",
 	"lastProgramArguments": []
 }
