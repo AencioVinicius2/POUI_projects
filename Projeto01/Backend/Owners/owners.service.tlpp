@@ -62,8 +62,8 @@ Method post(nOperation as Numeric, jBody as Json) as Json Class OwnersService
     Local oData as object
 
     oData := OwnersData():new("POST")
-    ::jResponse := oData:handleOwners(nOperation, jBody)
-
+    ::jResponse := oData:handleOwners(nOperation, jBody) 
+    // jResponse -> retorno do que a service vai mandar para a controller
     If !oData:lOk
         ::jResponse := SetRestFault(oData:GetCode(), oData:GetMessage())
     EndIf

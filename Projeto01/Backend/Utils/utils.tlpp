@@ -1,9 +1,16 @@
+#include 'TOTVS.ch'
 #include 'tlpp-core.th'
 #include "FWMVCDEF.CH"
 
 namespace utils
 
-// Função para pegar os queryParam - Filter
+/*/{Protheus.doc} getQueryParam
+Função para pegar os queryParam - Filter
+@type user function
+@Aencio Vinicius
+@since 28/08/2024
+@version 1.0
+/*/
 User Function getQueryParam(cName as Character) as Character
     Local cParamText as Character
 
@@ -19,7 +26,13 @@ User Function getQueryParam(cName as Character) as Character
     EndIf
 Return cParamText
 
-// Função que retorna a query de acordo com a tabela
+/*/{Protheus.doc} getQuery
+Função que retorna a query de acordo com a tabela
+@type user function
+@Aencio Vinicius
+@since 28/08/2024
+@version 1.0
+/*/
 User Function getQuery(cTable as Character) as Character
     Local cQuery as Character
 
@@ -27,7 +40,13 @@ User Function getQuery(cTable as Character) as Character
     cQuery += " WHERE #QueryWhere#"
 Return cQuery
 
-// Função que procura pelo registro de acordo com a tabela
+/*/{Protheus.doc} searchRecord
+Função que procura pelo registro de acordo com a tabela
+@type user function
+@Aencio Vinicius
+@since 28/08/2024
+@version 1.0
+/*/
 User Function searchRecord(cId as Character, cTable as Character) as Logical
     Local lRet as Logical
 
@@ -41,7 +60,13 @@ User Function searchRecord(cId as Character, cTable as Character) as Logical
     EndIf
 Return lRet
 
-// Função que seta a operação no modelo
+/*/{Protheus.doc} setOperationModel
+Função que seta a operação no modelo
+@type user function
+@Aencio Vinicius
+@since 28/08/2024
+@version 1.0
+/*/
 User Function setOperationModel(oModel as Object, nOperation as Numeric)
     If nOperation == 3
 		oModel:SetOperation(MODEL_OPERATION_INSERT)
@@ -52,7 +77,13 @@ User Function setOperationModel(oModel as Object, nOperation as Numeric)
 	Endif
 Return Nil
 
-// Função que seta os valores a serem incluídos/alterados no modelo
+/*/{Protheus.doc} setValue
+Função que seta os valores a serem incluídos/alterados no modelo
+@type user function
+@Aencio Vinicius
+@since 28/08/2024
+@version 1.0
+/*/
 User Function setValue(aData as Array, oModel as Object, cTable as Character) as Logical
     Local nX as Numeric
     Local lRet as Logical
@@ -68,7 +99,13 @@ User Function setValue(aData as Array, oModel as Object, cTable as Character) as
     Next
 Return lRet
 
-// Função que retorna o erro do modelo
+/*/{Protheus.doc} getError
+Função que retorna o erro do modelo
+@type user function
+@Aencio Vinicius
+@since 28/08/2024
+@version 1.0
+/*/
 User Function getError(aMsgError as Array)
     Local cError as Character
     Local nError as Numeric
@@ -80,7 +117,13 @@ User Function getError(aMsgError as Array)
     Next
 Return cError
 
-// Função que faz o de para das informações de acordo com o HashFields
+/*/{Protheus.doc} buildData
+Função que faz o de para das informações de acordo com o HashFields
+@type user function
+@Aencio Vinicius
+@since 28/08/2024
+@version 1.0
+/*/
 User Function buildData(jBody as Json, oResource as Object) as Array
     Local aData as Array
     Local aFields as Array

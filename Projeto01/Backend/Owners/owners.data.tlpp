@@ -34,10 +34,10 @@ Static Function AddMapFields(oSelf as object)
     oSelf:AddMapField("id"   , "ZSB_ID"   , .T., .T.,{"ZSB_ID"   , 'C', TamSX3('ZSB_ID')[1]   , 0})
     oSelf:AddMapField("name" , "ZSB_NAME" , .T., .T.,{"ZSB_ID"   , 'C', TamSX3('ZSB_ID')[1]   , 0})
     oSelf:AddMapField("rg"   , "ZSB_RG"   , .T., .T.,{"ZSB_RG"   , 'C', TamSX3('ZSB_RG')[1]   , 0})
-    oSelf:AddMapField("cpf"  , "ZSB_CPF"  , .T., .T.,{"ZSB_CPF"  , 'C', TamSX3('ZSB_CPF')[1]  , 0})
-    oSelf:AddMapField("email", "ZSB_EMAIL", .T., .T.,{"ZSB_EMAIL", 'C', TamSX3('ZSB_EMAIL')[1], 0})
-    oSelf:AddMapField("tel1" , "ZSB_TEL1" , .T., .T.,{"ZSB_TEL1" , 'C', TamSX3('ZSB_TEL1')[1] , 0})
-    oSelf:AddMapField("tel2" , "ZSB_TEL2" , .T., .T.,{"ZSB_TEL2" , 'C', TamSX3('ZSB_TEL2')[1] , 0})
+    //oSelf:AddMapField("cpf"  , "ZSB_CPF"  , .T., .T.,{"ZSB_CPF"  , 'C', TamSX3('ZSB_CPF')[1]  , 0})
+    //oSelf:AddMapField("email", "ZSB_EMAIL", .T., .T.,{"ZSB_EMAIL", 'C', TamSX3('ZSB_EMAIL')[1], 0})
+    //oSelf:AddMapField("tel1" , "ZSB_TEL1" , .T., .T.,{"ZSB_TEL1" , 'C', TamSX3('ZSB_TEL1')[1] , 0})
+    //oSelf:AddMapField("tel2" , "ZSB_TEL2" , .T., .T.,{"ZSB_TEL2" , 'C', TamSX3('ZSB_TEL2')[1] , 0})
 Return Nil
 
 /*/{Protheus.doc} get
